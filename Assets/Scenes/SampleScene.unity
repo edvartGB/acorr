@@ -406,19 +406,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc9c5ec8354c4533a3b699450f2eb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: c895f295b05d642768f820f2b6fc822c, type: 2}
-  lag1: 1164.9172
-  lag2: 237.1
+  lag1: 3085.9814
+  lag2: -53.438263
   audioClip: {fileID: 8300000, guid: cb15daf88ad6143d6816d7beb0e2888f, type: 3}
-  increment1: 0
-  incrementRate1: 1
-  increment2: 0
-  incrementRate2: 1
+  filterComputeShader: {fileID: 7200000, guid: 2e234b7814d1f4a60b293fca0082aa99, type: 3}
+  increment1: 1
+  incrementRate1: 4.3
+  increment2: 1
+  incrementRate2: -0.63
   shaderParams:
     minDepth: 1.64
     maxDepth: 7.35
     minIntensity: 0.09
     maxIntensity: 0.77
+    ambientK: 0.42
+    ambientColor: {r: 0.4716981, g: 0.4667683, b: 0.30927375, a: 1}
+    diffuseK: -0.81
+    diffuseColor: {r: 0.3764706, g: 0.38548243, b: 0.4627451, a: 1}
+    specularK: -2.37
+    specularPower: 33.48
+    specularColor: {r: 1, g: 0, b: 0.06547117, a: 1}
+  filterParams:
+    stdDev: 4.909714
 --- !u!4 &688762953
 Transform:
   m_ObjectHideFlags: 0
