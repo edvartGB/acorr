@@ -1,2 +1,2 @@
-<video controls src="Docs/demo.mov" title="Title"></video>
-<video controls src="Docs/demo2.mov" title="Title"></video>
+<video controls src="https://github.com/edvartGB/acorr/blob/main/Docs/demo.mov" title="Title"></video>
+<video controls src="https://github.com/edvartGB/acorr/blob/main/Docs/demo2.mov" title="Title"></video>
