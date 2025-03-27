@@ -415,15 +415,16 @@ MonoBehaviour:
   increment2: 1
   incrementRate2: -0.63
   shaderParams:
+    points: 0
     minDepth: 1.64
     maxDepth: 7.35
     minIntensity: 0.09
     maxIntensity: 0.77
-    ambientK: 0.42
+    ambientK: 0
     ambientColor: {r: 0.4716981, g: 0.4667683, b: 0.30927375, a: 1}
-    diffuseK: -0.81
+    diffuseK: 1
     diffuseColor: {r: 0.3764706, g: 0.38548243, b: 0.4627451, a: 1}
-    specularK: -2.37
+    specularK: 0
     specularPower: 33.48
     specularColor: {r: 1, g: 0, b: 0.06547117, a: 1}
   filterParams:
