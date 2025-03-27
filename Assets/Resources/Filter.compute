@@ -1,0 +1,33 @@
+#pragma kernel CSMain
+
+RWStructuredBuffer<float> InputSignal;
+RWStructuredBuffer<float> OutputSignal;
+int nSignal;
+float stdDev;
+
+[numthreads(256, 1, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    int idx = int(id.x);
+    if (idx >= nSignal) { // Fixed boundary check
+        return;
+    }
+
+    float filtered = 0.0f;
+    float weightSum = 0.0f;
+
+    for (int i = 0; i < 11; i++) {
+        int offset = (i - 5);
+        int k = idx + offset;
+
+        if (k >= 0 && k < nSignal) {
+            float x = float(offset);
+            float weight = exp(-x*x / (2.0f * stdDev * stdDev));
+            filtered += weight * InputSignal[k];
+            weightSum += weight;
+        }
+    }
+
+    // Normalize by total weight
+    OutputSignal[idx] = filtered / weightSum;
+}
