@@ -2,8 +2,8 @@ Shader "LineShader"
 {
     SubShader
     {
-        Tags { "Queue"="Transparent" "RenderType"="Transparent" }
-        Blend SrcAlpha OneMinusSrcAlpha
+        // Tags { "Queue"="Transparent" "RenderType"="Transparent" }
+        // Blend SrcAlpha OneMinusSrcAlpha
         Pass
         {
             CGPROGRAM
@@ -21,6 +21,7 @@ Shader "LineShader"
                 float4 wpos : COLOR1;
                 float4 tangent : NORMAL;
                 float depth : DEPTH;
+                float psize : PSIZE;
             };
 
             StructuredBuffer<int> uIndices;
@@ -89,6 +90,7 @@ Shader "LineShader"
                 
                 o.color = float4(1.0, 1.0, 1.0, 1.0);
                 o.depth = - UnityObjectToViewPos(wpos).z;
+                o.psize = 5.0f/o.depth;
                 return o;
             }
 

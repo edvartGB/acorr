@@ -26,6 +26,7 @@ public class ExampleClass : MonoBehaviour
 
     [System.Serializable]
     public struct ShaderParams {
+        public bool points;
         public float minDepth;
         public float maxDepth;
         public float minIntensity;
@@ -82,6 +83,7 @@ public class ExampleClass : MonoBehaviour
         indices = LineStripIndices(ref vertices);
         mesh.SetVertices(vertices);
         mesh.SetIndices(indices, MeshTopology.LineStrip, 0);
+        // mesh.SetIndices(indices, MeshTopology.Points, 0);
 
         filterComputeShader = Resources.Load<ComputeShader>("Filter");
 
@@ -140,7 +142,11 @@ public class ExampleClass : MonoBehaviour
         rp.matProps.SetVector("colorDiffuse", (Vector4)shaderParams.diffuseColor);
         rp.matProps.SetVector("colorSpecular", (Vector4)shaderParams.specularColor);
 
-        Graphics.RenderPrimitives(rp, MeshTopology.LineStrip, (int)mesh.GetIndexCount(0), 1);
+        if (shaderParams.points){
+            Graphics.RenderPrimitives(rp, MeshTopology.Points, (int)mesh.GetIndexCount(0), 1);
+        } else {
+            Graphics.RenderPrimitives(rp, MeshTopology.LineStrip, (int)mesh.GetIndexCount(0), 1);
+        }
 
     }
 }
